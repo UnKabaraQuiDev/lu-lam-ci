@@ -1,0 +1,16 @@
+thickness 2.0f
+goto 100 100
+color "#ff0000"
+down
+
+loop 36
+{
+    loop 4
+    {
+        move 20
+        rotate 90
+    }
+    rotate 10
+    color "#ababab"
+    move 5
+}
