@@ -1,0 +1,12 @@
+false
+true
+true
+true
+true
+true
+"EquationSolver","-85","15"
+"EquationException","535","-66"
+"EquationSolution","626","155"
+"NoRealEquationSolution","936","480"
+"UniqueEquationSolution","1166","-25"
+"DoubleEquationSolution","-87","613"

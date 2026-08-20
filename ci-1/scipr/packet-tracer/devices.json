@@ -1,0 +1,19 @@
+[ {
+  "x" : 425,
+  "y" : 195,
+  "parent" : "",
+  "type" : "router",
+  "name" : "Gateway",
+  "ip" : "172.17.0.255",
+  "subDevices" : [ {
+    "x" : 228,
+    "y" : 280,
+    "parent" : "Gateway",
+    "type" : "Computa",
+    "name" : "Myself",
+    "ip" : "172.17.251.200",
+    "subDevices" : [ ],
+    "pingStatus" : "REACHABLE"
+  } ],
+  "pingStatus" : "FAILED"
+} ]
