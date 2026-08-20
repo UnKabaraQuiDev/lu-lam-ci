@@ -29,10 +29,10 @@ jobs:
             cd /var/www
 
             LOC="${{ vars.PAGES_LOCATION }}"
-            git config --global --add safe.directory $LOC
 
             if [ ! -d "$LOC/.git" ]; then
               rm -rf $LOC/*
+              git config --global --add safe.directory $LOC
               git clone \
                 --branch pages \
                 https://${{ secrets.GH_PAT }}@github.com/UnKabaraQuiDev/UnKabaraQuiDev.git \
@@ -40,6 +40,7 @@ jobs:
             fi
 
             cd $LOC
+            git config --global --add safe.directory $LOC
 
             git fetch origin pages
             git checkout pages
