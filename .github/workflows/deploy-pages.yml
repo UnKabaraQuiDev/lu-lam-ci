@@ -35,7 +35,7 @@ jobs:
               rm -rf $LOC/*
               git clone \
                 --branch pages \
-                https://${{ secrets.GH_PAT }}@github.com/UnKabaraQuiDev/UnKabaraQuiDev.git \
+                https://${{ secrets.GH_PAT }}@github.com/UnKabaraQuiDev/lu-lam-ci.git \
                 $LOC
             fi
 
