@@ -10,6 +10,9 @@ on:
 env:
   EXAM_TEMPLATES: "all"
 
+permissions:
+  contents: write
+
 jobs:
   fill:
     name: Fill exam-db template
