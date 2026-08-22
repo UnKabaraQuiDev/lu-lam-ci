@@ -38,5 +38,6 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "ci: Sync exams index"
+            git pull --rebase origin pages
             git push origin HEAD:main
           fi
