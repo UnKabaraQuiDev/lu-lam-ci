@@ -42,7 +42,7 @@ def get_current_branch():
 # ============================================================
 
 def get_i18n_keys(html_file):
-    """Return all unique i18n-data keys from an HTML file."""
+    """Return all unique data-i18n keys from an HTML file."""
 
     content = html_file.read_text(encoding="utf-8")
 
