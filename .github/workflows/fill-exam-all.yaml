@@ -29,8 +29,17 @@ jobs:
             python ".github/scripts/fill-exam-${name}.py"
           done
 
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
       - name: Commit & Push changes
-        uses: stefanzweifel/git-auto-commit-action@v7
-        with:
-          commit_message: "ci: Fill template for exam-db>all"
-          branch: pages
+        run: |
+          git add .
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "ci: Fill template for exam-db"
+            git push origin HEAD:main
+          fi

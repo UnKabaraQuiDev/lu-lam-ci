@@ -22,8 +22,17 @@ jobs:
         run: |
           python .github/scripts/index-exams.py
 
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+
       - name: Commit & Push changes
-        uses: stefanzweifel/git-auto-commit-action@v7
-        with:
-          commit_message: "ci: Sync exams index"
-          branch: main
+        run: |
+          git add .
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "ci: Sync exams index"
+            git push origin HEAD:main
+          fi
