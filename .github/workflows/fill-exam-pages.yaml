@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  EXAM_TEMPLATES: "all"
+  EXAM_TEMPLATES: "all index sections subjects"
 
 permissions:
   contents: write
