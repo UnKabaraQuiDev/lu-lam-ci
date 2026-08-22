@@ -44,3 +44,12 @@ jobs:
             git fetch origin pages
             git checkout pages
             git reset --hard origin/pages
+
+            git fetch origin main
+
+            if [ ! -d "data" ]; then
+              git worktree add --detach data origin/main
+            else
+              git -C data fetch origin main
+              git -C data reset --hard origin/main
+            fi
