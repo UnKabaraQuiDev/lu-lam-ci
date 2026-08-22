@@ -57,9 +57,11 @@ jobs:
             git fetch origin main
 
             if [ ! -d "data" ]; then
-              git worktree add --detach data origin/main
+              git worktree add data main
             else
               git -C data fetch origin main
+              git -C data checkout main
               git -C data reset --hard origin/main
-              git lfs pull origin main
             fi
+            
+            git -C data lfs pull origin main
