@@ -2,6 +2,9 @@ name: Deploy Pages
 
 on:
   workflow_dispatch:
+  workflow_run:
+    workflows: ["Check i18n Tags", "Fill Exam Templates"]
+    types: [completed]
   push:
     branches:
       - pages
