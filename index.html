@@ -1,1 +1,123 @@
-<!doctype html><html><body><h1>Hello</h1><p>Test new domain.</p></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Exam Tools</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/js/css.js"></script>
+    <script src="/js/i18n.js"></script>
+</head>
+
+<body class="min-h-screen bg-gray-100 text-gray-900">
+
+    <!-- Header -->
+    <header class="bg-white border-b">
+        <div class="max-w-6xl mx-auto px-6 py-5">
+            <h1 class="text-2xl font-bold">Exam Tools</h1>
+            <p class="text-gray-500 mt-1">
+                Everything you need to prepare for your exams.
+            </p>
+        </div>
+        <select
+            onchange="setLanguage(this.value)"
+            class="border rounded-lg px-3 py-2"
+        >
+            <option value="en">English</option>
+            <option value="fr">Français</option>
+            <option value="de">Deutsch</option>
+            <option value="lb">Lëtzebuergesch</option>
+        </select>
+    </header>
+
+
+    <!-- Main -->
+    <main class="max-w-6xl mx-auto px-6 py-10 space-y-6">
+
+
+        <!-- 1. Exam Database -->
+        <section class="bg-white rounded-2xl shadow-sm border p-8">
+
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+
+                <div>
+                    <h2 class="text-2xl font-bold mt-1">
+                        Examen Database
+                    </h2>
+
+                    <p class="text-gray-600 mt-2 max-w-xl">
+                        Browse past exams, questions and exercises. Search by subject,
+                        year or topic.
+                    </p>
+                </div>
+
+                <a href="examen-db/" class="bg-blue-600 hover:bg-blue-700 text-white font-medium
+                       px-5 py-3 rounded-lg transition">
+                    Open Database
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- 2. Exam Study Mode -->
+        <section class="bg-white rounded-2xl shadow-sm border p-8">
+
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+
+                <div>
+                    <h2 class="text-2xl font-bold mt-1">
+                        Examen Study Mode
+                    </h2>
+
+                    <p class="text-gray-600 mt-2 max-w-xl">
+                        Practice under exam conditions with timed questions and
+                        instant feedback.
+                    </p>
+                </div>
+
+                <button class="bg-green-600 hover:bg-green-700 text-white font-medium
+                       px-5 py-3 rounded-lg transition">
+                    Start Study Mode
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- 3. Per-Year Resources -->
+        <section class="bg-white rounded-2xl shadow-sm border p-8">
+
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+
+                <div>
+                    <h2 class="text-2xl font-bold mt-1">
+                        Per-Year Resources
+                    </h2>
+
+                    <p class="text-gray-600 mt-2 max-w-xl">
+                        Find notes, summaries, exercises and other study resources
+                        organized by school year.
+                    </p>
+                </div>
+
+                <button class="bg-purple-600 hover:bg-purple-700 text-white font-medium
+                       px-5 py-3 rounded-lg transition">
+                    View Resources
+                </button>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</body>
+
+</html>
