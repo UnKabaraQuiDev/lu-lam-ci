@@ -1,0 +1,16 @@
+{
+    "examDatabase.description": "List of all past exams from the Luxembourgish education system.",
+    "examDatabase.open": "Open database",
+    "examDatabase.title": "Exam database",
+    "examTools.description": "Collection of school- & exam-related resources for students of the Luxembourgish education system.",
+    "examTools.title": "Luxembourgish Exam Resources",
+    "languages.english": "English",
+    "languages.french": "Français",
+    "languages.german": "Deutsch",
+    "resources.description": "Other resources, links and tools",
+    "resources.title": "Additional resources",
+    "resources.view": "View",
+    "studyMode.description": "Helps you learn the subject of your choice by giving you individual questions and answers. (Coming soon)",
+    "studyMode.start": "Start",
+    "studyMode.title": "Exam Study Mode"
+}

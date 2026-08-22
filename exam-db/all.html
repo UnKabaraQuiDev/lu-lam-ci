@@ -28,10 +28,12 @@
         <select
             onchange="setLanguage(this.value)"
             class="border rounded-lg px-3 py-2"
+            aria-label="Language"
+            data-i18n-aria-label="language"
         >
-            <option value="en">English</option>
-            <option value="fr">Français</option>
-            <option value="de">Deutsch</option>
+            <option value="en" data-i18n="languages.english">English</option>
+            <option value="fr" data-i18n="languages.french">Français</option>
+            <option value="de" data-i18n="languages.german">Deutsch</option>
         </select>
     </header>
 

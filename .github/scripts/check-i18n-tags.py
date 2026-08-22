@@ -9,6 +9,8 @@ import sys
 # Configuration
 # ============================================================
 
+LANGUAGES = ["en", "de", "fr"]
+
 PLACEHOLDER = "<translation missing>"
 
 I18N_PATTERN = re.compile(
@@ -24,7 +26,13 @@ I18N_PATTERN = re.compile(
 def get_repo_root():
     return Path(
         subprocess.check_output(
-            ["git", "-C", str(Path(__file__).resolve().parent), "rev-parse", "--show-toplevel"],
+            [
+                "git",
+                "-C",
+                str(Path(__file__).resolve().parent),
+                "rev-parse",
+                "--show-toplevel",
+            ],
             text=True,
         ).strip()
     )
@@ -32,7 +40,13 @@ def get_repo_root():
 
 def get_current_branch():
     return subprocess.check_output(
-        ["git", "-C", str(Path(__file__).resolve().parent), "branch", "--show-current"],
+        [
+            "git",
+            "-C",
+            str(Path(__file__).resolve().parent),
+            "branch",
+            "--show-current",
+        ],
         text=True,
     ).strip()
 
@@ -72,6 +86,25 @@ def load_json(json_file):
     return data
 
 
+def create_translation_file(json_file):
+    """Create an empty translation JSON file."""
+
+    print(f"[CREATE] {json_file.relative_to(ROOT_DIR)}")
+
+    with json_file.open(
+        "w",
+        encoding="utf-8",
+        newline="\n",
+    ) as file:
+        json.dump(
+            {},
+            file,
+            ensure_ascii=False,
+            indent=4,
+        )
+        file.write("\n")
+
+
 def update_translation_file(json_file, required_keys):
     """
     Add missing translation keys to a JSON file.
@@ -82,7 +115,7 @@ def update_translation_file(json_file, required_keys):
     data = load_json(json_file)
 
     if data is None:
-        return 0
+        data = {}
 
     missing = sorted(
         key
@@ -134,6 +167,7 @@ def main():
 
     print(f"Repository: {ROOT_DIR}")
     print(f"Branch:     {branch}")
+    print(f"Languages:  {', '.join(LANGUAGES)}")
     print()
 
     html_files = sorted(ROOT_DIR.rglob("*.html"))
@@ -181,6 +215,7 @@ def main():
 
     total_missing = 0
     total_files = 0
+    total_created = 0
 
     for directory, required_keys in sorted(
         keys_by_directory.items()
@@ -188,70 +223,51 @@ def main():
 
         i18n_directory = directory / "i18n"
 
+        # Create the i18n directory if it doesn't exist.
         if not i18n_directory.exists():
             print(
-                f"[ERROR] Missing i18n directory: "
-                f"{i18n_directory.relative_to(ROOT_DIR)}"
+                f"[CREATE] {i18n_directory.relative_to(ROOT_DIR)}"
             )
-            continue
-
-        json_files = sorted(
-            i18n_directory.glob("*.json")
-        )
-
-        if not json_files:
-            print(
-                f"[ERROR] No translation files in: "
-                f"{i18n_directory.relative_to(ROOT_DIR)}"
+            i18n_directory.mkdir(
+                parents=True,
+                exist_ok=True,
             )
-            continue
 
-        for json_file in json_files:
+        # ----------------------------------------------------
+        # Ensure every configured language file exists
+        # ----------------------------------------------------
 
-            data = load_json(json_file)
+        for language in LANGUAGES:
 
-            if data is None:
+            json_file = i18n_directory / f"{language}.json"
+
+            if not json_file.exists():
+                create_translation_file(json_file)
+                total_created += 1
+
+        print()
+
+        # ----------------------------------------------------
+        # Add missing keys to every language
+        # ----------------------------------------------------
+
+        for language in LANGUAGES:
+
+            json_file = i18n_directory / f"{language}.json"
+
+            added = update_translation_file(
+                json_file,
+                required_keys,
+            )
+
+            if added == 0:
                 continue
 
-            missing = sorted(
-                key
-                for key in required_keys
-                if key not in data
-            )
-
-            if not missing:
-                continue
-
-            print(
-                f"[MISSING] "
-                f"{json_file.relative_to(ROOT_DIR)}"
-            )
-
-            for key in missing:
-                print(f"          {key}")
-
-            # Add placeholders
-            for key in missing:
-                data[key] = PLACEHOLDER
-
-            with json_file.open(
-                "w",
-                encoding="utf-8",
-                newline="\n",
-            ) as file:
-                json.dump(
-                    data,
-                    file,
-                    ensure_ascii=False,
-                    indent=4,
-                )
-                file.write("\n")
-
-            total_missing += len(missing)
+            total_missing += added
             total_files += 1
 
             print(
-                f"          Added {len(missing)} "
+                f"         Added {added} "
                 f"placeholder(s)."
             )
             print()
@@ -262,6 +278,7 @@ def main():
 
     print("Done.")
     print(f"HTML directories scanned: {len(keys_by_directory)}")
+    print(f"Translation files created: {total_created}")
     print(f"Translation files updated: {total_files}")
     print(f"Missing translations added: {total_missing}")
 

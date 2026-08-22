@@ -4,5 +4,8 @@
     "data": "Data folder",
     "mission": "Statement",
     "oral": "Oral",
-    "solution": "Solution"
+    "solution": "Solution",
+    "languages.english": "English",
+    "languages.french": "Français",
+    "languages.german": "Deutsch"
 }

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Exam Tools</title>
+    <title data-i18n="examTools.title">Exam Tools</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/js/css.js"></script>
@@ -17,18 +17,24 @@
     <!-- Header -->
     <header class="bg-white border-b">
         <div class="max-w-6xl mx-auto px-6 py-5">
-            <h1 class="text-2xl font-bold">Exam Tools</h1>
-            <p class="text-gray-500 mt-1">
+            <h1 class="text-2xl font-bold" data-i18n="examTools.title">
+                Exam Tools
+            </h1>
+
+            <p class="text-gray-500 mt-1" data-i18n="examTools.description">
                 Everything you need to prepare for your exams.
             </p>
         </div>
+
         <select
             onchange="setLanguage(this.value)"
             class="border rounded-lg px-3 py-2"
+            aria-label="Language"
+            data-i18n-aria-label="language"
         >
-            <option value="en">English</option>
-            <option value="fr">Français</option>
-            <option value="de">Deutsch</option>
+            <option value="en" data-i18n="languages.english">English</option>
+            <option value="fr" data-i18n="languages.french">Français</option>
+            <option value="de" data-i18n="languages.german">Deutsch</option>
         </select>
     </header>
 
@@ -43,18 +49,22 @@
             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
 
                 <div>
-                    <h2 class="text-2xl font-bold mt-1">
+                    <h2 class="text-2xl font-bold mt-1" data-i18n="examDatabase.title">
                         Exam Database
                     </h2>
 
-                    <p class="text-gray-600 mt-2 max-w-xl">
+                    <p class="text-gray-600 mt-2 max-w-xl" data-i18n="examDatabase.description">
                         Browse past exams, questions and exercises. Search by subject,
                         year or topic.
                     </p>
                 </div>
 
-                <a href="exam-db/" class="bg-blue-600 hover:bg-blue-700 text-white font-medium
-                       px-5 py-3 rounded-lg transition">
+                <a
+                    href="exam-db/"
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-medium
+                           px-5 py-3 rounded-lg transition"
+                    data-i18n="examDatabase.open"
+                >
                     Open Database
                 </a>
 
@@ -69,18 +79,20 @@
             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
 
                 <div>
-                    <h2 class="text-2xl font-bold mt-1">
+                    <h2 class="text-2xl font-bold mt-1" data-i18n="studyMode.title">
                         Exam Study Mode
                     </h2>
 
-                    <p class="text-gray-600 mt-2 max-w-xl">
-                        Practice under exam conditions with timed questions and
-                        instant feedback.
+                    <p class="text-gray-600 mt-2 max-w-xl" data-i18n="studyMode.description">
+                        Practice exams questions (coming soon).
                     </p>
                 </div>
 
-                <button class="bg-green-600 hover:bg-green-700 text-white font-medium
-                       px-5 py-3 rounded-lg transition">
+                <button
+                    class="bg-green-600 hover:bg-green-700 text-white font-medium
+                           px-5 py-3 rounded-lg transition"
+                    data-i18n="studyMode.start"
+                >
                     Start Study Mode
                 </button>
 
@@ -95,18 +107,21 @@
             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
 
                 <div>
-                    <h2 class="text-2xl font-bold mt-1">
+                    <h2 class="text-2xl font-bold mt-1" data-i18n="resources.title">
                         Per-Year Resources
                     </h2>
 
-                    <p class="text-gray-600 mt-2 max-w-xl">
+                    <p class="text-gray-600 mt-2 max-w-xl" data-i18n="resources.description">
                         Find notes, summaries, exercises and other study resources
                         organized by school year.
                     </p>
                 </div>
 
-                <button class="bg-purple-600 hover:bg-purple-700 text-white font-medium
-                       px-5 py-3 rounded-lg transition">
+                <button
+                    class="bg-purple-600 hover:bg-purple-700 text-white font-medium
+                           px-5 py-3 rounded-lg transition"
+                    data-i18n="resources.view"
+                >
                     View Resources
                 </button>
 
