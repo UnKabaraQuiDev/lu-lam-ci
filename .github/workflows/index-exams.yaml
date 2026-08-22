@@ -20,6 +20,7 @@ jobs:
         with:
           lfs: false
           fetch-depth: 0
+          ref: main 
 
       - name: Generate exam index
         run: |
