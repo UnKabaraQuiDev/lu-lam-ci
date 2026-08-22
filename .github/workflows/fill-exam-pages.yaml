@@ -49,7 +49,7 @@ jobs:
 
       - name: Commit & Push changes
         run: |
-          git add .
+          git add exam-db/
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
