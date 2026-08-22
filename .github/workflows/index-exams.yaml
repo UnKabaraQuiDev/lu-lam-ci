@@ -1,0 +1,29 @@
+name: Generate Exam Index
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  generate:
+    name: Generate exam index
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          lfs: false
+          fetch-depth: 0
+
+      - name: Generate exam index
+        run: |
+          python .github/scripts/index-exams.py
+
+      - name: Commit & Push changes
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "ci: Sync exams index"
+          branch: main
