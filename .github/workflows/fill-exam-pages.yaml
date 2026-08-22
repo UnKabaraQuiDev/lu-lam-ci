@@ -26,6 +26,7 @@ jobs:
 
       - name: Fill exam-db template
         run: |
+          ls -la .github/scripts/
           for name in $EXAM_TEMPLATES; do
             echo "Running fill-exam-${name}.py"
             python ".github/scripts/fill-exam-${name}.py"
