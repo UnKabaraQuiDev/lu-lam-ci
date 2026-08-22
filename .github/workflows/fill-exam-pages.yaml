@@ -26,8 +26,11 @@ jobs:
         with:
           ref: pages
           fetch-depth: 0
+          lfs: false
       
       - name: Create main worktree
+        env:
+          GIT_LFS_SKIP_SMUDGE: "1"
         run: |
           git worktree add data main
 
