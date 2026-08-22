@@ -39,7 +39,8 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "ci: Add missing i18n keys"
-            git push origin HEAD:main
+            git pull --rebase origin pages
+            git push origin HEAD:pages
           fi
 
       - name: Fail if translations were missing
