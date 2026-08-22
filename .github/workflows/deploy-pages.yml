@@ -37,6 +37,7 @@ jobs:
 
             LOC="${{ vars.PAGES_LOCATION }}"
             git config --global --add safe.directory $LOC
+            git lfs install
 
             if [ ! -d "$LOC/.git" ]; then
               rm -rf $LOC/*
@@ -51,6 +52,7 @@ jobs:
             git fetch origin pages
             git checkout pages
             git reset --hard origin/pages
+            git lfs pull origin pages
 
             git fetch origin main
 
@@ -59,4 +61,5 @@ jobs:
             else
               git -C data fetch origin main
               git -C data reset --hard origin/main
+              git lfs pull origin main
             fi
