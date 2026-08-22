@@ -25,6 +25,11 @@ jobs:
         uses: actions/checkout@v7
         with:
           ref: pages
+          fetch-depth: 0
+      
+      - name: Create main worktree
+        run: |
+          git worktree add data main
 
       - name: Fill exam-db template
         run: |
