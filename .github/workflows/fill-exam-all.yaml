@@ -1,0 +1,36 @@
+name: Fill Exam Templates
+
+on:
+  push:
+    branches:
+      - pages
+
+  workflow_dispatch:
+
+env:
+  EXAM_TEMPLATES: "all"
+
+jobs:
+  fill:
+    name: Fill exam-db template
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Fill exam-db template
+        run: |
+          for name in $EXAM_TEMPLATES; do
+            echo "Running fill-exam-${name}.py"
+            python ".github/scripts/fill-exam-${name}.py"
+          done
+
+      - name: Commit & Push changes
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "ci: Fill template for exam-db>all"
+          branch: pages

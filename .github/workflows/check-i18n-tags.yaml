@@ -1,0 +1,39 @@
+name: Check i18n Tags
+
+on:
+  push:
+    branches:
+      - pages
+
+  workflow_dispatch:
+
+jobs:
+  check:
+    name: Check i18n translations
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Check i18n tags
+        id: check
+        continue-on-error: true
+        run: |
+          python .github/scripts/check-i18n-tags.py
+
+      - name: Commit & Push changes
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "ci: Add missing i18n keys"
+          branch: pages
+
+      - name: Fail if translations were missing
+        if: steps.check.outcome == 'failure'
+        run: |
+          echo "Missing i18n translations were found."
+          echo "Placeholder entries have been added and committed."
+          exit 1

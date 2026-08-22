@@ -16,8 +16,8 @@ ROOT_DIR = Path(
     ).strip()
 )
 
-EXAMEN_DIR = ROOT_DIR / "examen"
-OUTPUT_FILE = EXAMEN_DIR / "db.csv"
+EXAM_DIR = ROOT_DIR / "exams"
+OUTPUT_FILE = EXAM_DIR / "db.csv"
 
 CSV_HEADER = [
     "Section",
@@ -171,7 +171,7 @@ def get_directory_candidates(path):
 
     Example:
 
-        examen/
+        exams/
             CB/
                 CB_INFOR/
                     file.pdf
@@ -185,7 +185,7 @@ def get_directory_candidates(path):
     """
 
     try:
-        relative = path.relative_to(EXAMEN_DIR)
+        relative = path.relative_to(EXAM_DIR)
     except ValueError:
         return None
 
@@ -254,8 +254,8 @@ def collect_exams():
     exams = defaultdict(dict)
 
     pdf_files = sorted(
-        list(EXAMEN_DIR.rglob("*.pdf"))
-        + list(EXAMEN_DIR.rglob("*.zip"))
+        list(EXAM_DIR.rglob("*.pdf"))
+        + list(EXAM_DIR.rglob("*.zip"))
     )
 
     print(f"Found {len(pdf_files)} files.")
@@ -336,13 +336,13 @@ def create_csv(exams):
 
 def main():
 
-    if not EXAMEN_DIR.exists():
+    if not EXAM_DIR.exists():
         raise FileNotFoundError(
-            f"Exam directory does not exist: {EXAMEN_DIR}"
+            f"Exam directory does not exist: {EXAM_DIR}"
         )
 
     print(f"Root:   {ROOT_DIR}")
-    print(f"Exams:  {EXAMEN_DIR}")
+    print(f"Exams:  {EXAM_DIR}")
     print(f"Output: {OUTPUT_FILE}")
     print()
 
