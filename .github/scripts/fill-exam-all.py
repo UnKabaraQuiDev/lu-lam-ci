@@ -11,11 +11,11 @@ ROOT_DIR = Path(
     ).strip()
 )
 DATA_DIR = ROOT_DIR / "data"
-EXAMEN_DB_DIR = ROOT_DIR / "exam-db"
+EXAMS_DB_DIR = ROOT_DIR / "exam-db"
 
-TEMPLATE_FILE = EXAMEN_DB_DIR / "index.template.html"
-CSV_FILE = DATA_DIR / "examen/db.csv"
-OUTPUT_FILE = EXAMEN_DB_DIR / "index.html"
+TEMPLATE_FILE = EXAMS_DB_DIR / "index.template.html"
+CSV_FILE = DATA_DIR / "exams/db.csv"
+OUTPUT_FILE = EXAMS_DB_DIR / "index.html"
 
 
 def create_button(url, translation_key, color):

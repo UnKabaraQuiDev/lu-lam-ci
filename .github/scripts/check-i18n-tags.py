@@ -265,6 +265,16 @@ def main():
     print(f"Translation files updated: {total_files}")
     print(f"Missing translations added: {total_missing}")
 
+    # Missing keys were found and placeholders were added.
+    # Return non-zero so CI reports that translations are missing.
+    if total_missing > 0:
+        print()
+        print(
+            f"[ERROR] {total_missing} missing translation(s) "
+            "were added as placeholders."
+        )
+        sys.exit(1)
+
 
 if __name__ == "__main__":
     main()
