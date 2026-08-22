@@ -7,5 +7,17 @@
     "solution": "Solution",
     "languages.english": "English",
     "languages.french": "Français",
-    "languages.german": "Deutsch"
+    "languages.german": "Deutsch",
+    "action": "<translation missing>",
+    "section": "<translation missing>",
+    "sections.CA": "<translation missing>",
+    "sections.CB": "<translation missing>",
+    "sections.CC": "<translation missing>",
+    "sections.CD": "<translation missing>",
+    "sections.CE": "<translation missing>",
+    "sections.CF": "<translation missing>",
+    "sections.CG": "<translation missing>",
+    "sections.CI": "<translation missing>",
+    "sectionSubject.subtitle": "<translation missing>",
+    "sectionSubject.title": "<translation missing>"
 }

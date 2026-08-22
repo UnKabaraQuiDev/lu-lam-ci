@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title data-i18n="title">Exam Sections</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/js/css.js"></script>
+    <script src="/js/i18n.js"></script>
+</head>
+
+<body class="min-h-screen bg-gray-100 text-gray-900">
+
+    <!-- Header -->
+    <header class="bg-white border-b">
+        <div class="max-w-6xl mx-auto px-6 py-5">
+            <h1 class="text-2xl font-bold" data-i18n="title">
+                Exam Sections
+            </h1>
+
+            <p class="text-gray-500 mt-1" data-i18n="subtitle">
+                Select a section to view its subjects.
+            </p>
+        </div>
+
+        <select
+            onchange="setLanguage(this.value)"
+            class="border rounded-lg px-3 py-2"
+            aria-label="Language"
+            data-i18n-aria-label="language"
+        >
+            <option value="en" data-i18n="languages.english">English</option>
+            <option value="fr" data-i18n="languages.french">Français</option>
+            <option value="de" data-i18n="languages.german">Deutsch</option>
+        </select>
+    </header>
+
+    <!-- Main -->
+    <main class="max-w-6xl mx-auto px-6 py-10 space-y-6">
+
+        
+<div class="bg-white rounded-xl border shadow-sm overflow-hidden">
+
+    <div class="overflow-x-auto">
+
+        <table class="w-full text-left">
+
+            <thead>
+                <tr class="border-b bg-gray-50">
+
+                    <th
+                        class="px-4 py-3"
+                        data-i18n="section"
+                    >
+                        Section
+                    </th>
+
+                    <th
+                        class="px-4 py-3"
+                        data-i18n="action"
+                    >
+                        Action
+                    </th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                
+                <tr class="border-b last:border-b-0 hover:bg-gray-50">
+
+                    <td class="px-4 py-3 font-medium">
+                        CA
+                    </td>
+
+                    <td class="px-4 py-3">
+                        
+<a
+    href="CA/"
+    class="inline-block px-4 py-2 rounded-lg bg-blue-100 text-blue-700
+           hover:bg-blue-200 transition"
+    data-i18n="sections.CA"
+>
+    View
+</a>
+
+                    </td>
+
+                </tr>
+            
+                <tr class="border-b last:border-b-0 hover:bg-gray-50">
+
+                    <td class="px-4 py-3 font-medium">
+                        CB
+                    </td>
+
+                    <td class="px-4 py-3">
+                        
+<a
+    href="CB/"
+    class="inline-block px-4 py-2 rounded-lg bg-blue-100 text-blue-700
+           hover:bg-blue-200 transition"
+    data-i18n="sections.CB"
+>
+    View
+</a>
+
+                    </td>
+
+                </tr>
+            
+                <tr class="border-b last:border-b-0 hover:bg-gray-50">
+
+                    <td class="px-4 py-3 font-medium">
+                        CC
+                    </td>
+
+                    <td class="px-4 py-3">
+                        
+<a
+    href="CC/"
+    class="inline-block px-4 py-2 rounded-lg bg-blue-100 text-blue-700
+           hover:bg-blue-200 transition"
+    data-i18n="sections.CC"
+>
+    View
+</a>
+
+                    </td>
+
+                </tr>
+            
+                <tr class="border-b last:border-b-0 hover:bg-gray-50">
+
+                    <td class="px-4 py-3 font-medium">
+                        CD
+                    </td>
+
+                    <td class="px-4 py-3">
+                        
+<a
+    href="CD/"
+    class="inline-block px-4 py-2 rounded-lg bg-blue-100 text-blue-700
+           hover:bg-blue-200 transition"
+    data-i18n="sections.CD"
+>
+    View
+</a>
+
+                    </td>
+
+                </tr>
+            
+                <tr class="border-b last:border-b-0 hover:bg-gray-50">
+
+                    <td class="px-4 py-3 font-medium">
+                        CE
+                    </td>
+
+                    <td class="px-4 py-3">
+                        
+<a
+    href="CE/"
+    class="inline-block px-4 py-2 rounded-lg bg-blue-100 text-blue-700
+           hover:bg-blue-200 transition"
+    data-i18n="sections.CE"
+>
+    View
+</a>
+
+                    </td>
+
+                </tr>
+            
+                <tr class="border-b last:border-b-0 hover:bg-gray-50">
+
+                    <td class="px-4 py-3 font-medium">
+                        CF
+                    </td>
+
+                    <td class="px-4 py-3">
+                        
+<a
+    href="CF/"
+    class="inline-block px-4 py-2 rounded-lg bg-blue-100 text-blue-700
+           hover:bg-blue-200 transition"
+    data-i18n="sections.CF"
+>
+    View
+</a>
+
+                    </td>
+
+                </tr>
+            
+                <tr class="border-b last:border-b-0 hover:bg-gray-50">
+
+                    <td class="px-4 py-3 font-medium">
+                        CG
+                    </td>
+
+                    <td class="px-4 py-3">
+                        
+<a
+    href="CG/"
+    class="inline-block px-4 py-2 rounded-lg bg-blue-100 text-blue-700
+           hover:bg-blue-200 transition"
+    data-i18n="sections.CG"
+>
+    View
+</a>
+
+                    </td>
+
+                </tr>
+            
+                <tr class="border-b last:border-b-0 hover:bg-gray-50">
+
+                    <td class="px-4 py-3 font-medium">
+                        CI
+                    </td>
+
+                    <td class="px-4 py-3">
+                        
+<a
+    href="CI/"
+    class="inline-block px-4 py-2 rounded-lg bg-blue-100 text-blue-700
+           hover:bg-blue-200 transition"
+    data-i18n="sections.CI"
+>
+    View
+</a>
+
+                    </td>
+
+                </tr>
+            
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+    </main>
+
+</body>
+
+</html>

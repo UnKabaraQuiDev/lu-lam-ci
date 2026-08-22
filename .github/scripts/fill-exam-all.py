@@ -12,10 +12,11 @@ ROOT_DIR = Path(
 )
 DATA_DIR = ROOT_DIR / "data"
 EXAMS_DB_DIR = ROOT_DIR / "exam-db"
+EXAMS_DB_ALL_DIR = EXAMS_DB_DIR / "all"
 
-TEMPLATE_FILE = EXAMS_DB_DIR / "all.template.html"
+TEMPLATE_FILE = EXAMS_DB_ALL_DIR / "index.template.html"
 CSV_FILE = DATA_DIR / "exams/db.csv"
-OUTPUT_FILE = EXAMS_DB_DIR / "all.html"
+OUTPUT_FILE = EXAMS_DB_ALL_DIR / "index.html"
 
 def create_button(url, translation_key, color):
     if not url:

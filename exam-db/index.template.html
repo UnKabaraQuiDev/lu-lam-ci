@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title data-i18n="title">Exam Sections</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/js/css.js"></script>
+    <script src="/js/i18n.js"></script>
+</head>
+
+<body class="min-h-screen bg-gray-100 text-gray-900">
+
+    <!-- Header -->
+    <header class="bg-white border-b">
+        <div class="max-w-6xl mx-auto px-6 py-5">
+            <h1 class="text-2xl font-bold" data-i18n="title">
+                Exam Sections
+            </h1>
+
+            <p class="text-gray-500 mt-1" data-i18n="subtitle">
+                Select a section to view its subjects.
+            </p>
+        </div>
+
+        <select
+            onchange="setLanguage(this.value)"
+            class="border rounded-lg px-3 py-2"
+            aria-label="Language"
+            data-i18n-aria-label="language"
+        >
+            <option value="en" data-i18n="languages.english">English</option>
+            <option value="fr" data-i18n="languages.french">Français</option>
+            <option value="de" data-i18n="languages.german">Deutsch</option>
+        </select>
+    </header>
+
+    <!-- Main -->
+    <main class="max-w-6xl mx-auto px-6 py-10 space-y-6">
+
+        {{TABLE}}
+
+    </main>
+
+</body>
+
+</html>
